@@ -1,0 +1,153 @@
+*{box-sizing:border-box}
+:root{--pink:#ff8fbd;--rose:#f5b3cf;--gold:#ffd98b;--cream:#fff5f7;--purple:#6e3d76;--deep:#150918}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:"DM Sans",sans-serif;background:#16091c;color:var(--cream)}
+.screen{position:fixed;inset:0;display:none;overflow:hidden;text-align:center}
+.screen.active{display:flex}
+#opening{align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,#58264f 0,#2b1233 34%,#110713 85%)}
+.sparkles,.prayer-stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 12% 22%,#fff 50%,transparent 60%),radial-gradient(1.5px 1.5px at 72% 18%,#ffd4e7 50%,transparent 60%),radial-gradient(2px 2px at 88% 70%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 38% 76%,#ffd98b 50%,transparent 60%),radial-gradient(1px 1px at 58% 47%,#fff 50%,transparent 60%);background-size:260px 230px;animation:stars 4s infinite alternate;pointer-events:none}
+.opening-content{position:relative;z-index:3;margin-top:-15px}.mini-crown{color:var(--gold);letter-spacing:12px;font-size:12px;margin-bottom:18px}
+.cake{position:relative;width:260px;height:205px;margin:auto;filter:drop-shadow(0 22px 30px #0005)}
+.cake-top{position:absolute;left:30px;top:83px;width:200px;height:55px;border-radius:50%;background:linear-gradient(135deg,#ffdbe8,#fff4ed 50%,#f4aac9);border:3px solid #ffeaf2}
+.cake-body{position:absolute;left:31px;top:105px;width:198px;height:67px;border-radius:8px 8px 25px 25px;background:linear-gradient(90deg,#d75c91,#ffd3e2 40%,#f8a5c4 75%,#ca568d);box-shadow:inset 0 -10px #b84c80}
+.cake-body:before{content:"";position:absolute;top:-2px;left:0;right:0;height:25px;background:#fff0f3;border-radius:50%;clip-path:polygon(0 0,100% 0,100% 55%,92% 45%,85% 95%,75% 47%,65% 82%,55% 45%,45% 88%,35% 45%,25% 78%,15% 45%,7% 90%,0 45%)}
+.cake-body i{position:absolute;width:7px;height:7px;border-radius:50%;background:#ffe291;top:38px;box-shadow:0 0 8px #ffe291}.cake-body i:nth-child(1){left:30px}.cake-body i:nth-child(2){left:85px}.cake-body i:nth-child(3){right:78px}.cake-body i:nth-child(4){right:30px}
+.plate{position:absolute;bottom:17px;left:15px;width:230px;height:18px;border-radius:50%;background:#efc2d8;box-shadow:0 8px 0 #8b527b}
+.cake-candles{position:absolute;z-index:4;top:27px;left:82px;display:flex;gap:8px}
+.num-candle{display:flex;width:43px;height:62px;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,#ffd66f,#ff9b6f);border:3px solid #fff1bb;color:#fff;font-family:"Playfair Display",serif;font-size:38px;font-weight:700;text-shadow:0 2px 4px #9c4160;box-shadow:0 0 16px #ffcb6855}
+.flame{position:absolute;z-index:5;top:8px;left:123px;width:15px;height:25px;background:radial-gradient(ellipse at 50% 70%,#fff 0 20%,#ffe56e 30%,#ff7b36 75%);border-radius:60% 40% 55% 45%;filter:drop-shadow(0 0 9px #ffc14d);animation:flicker .6s infinite alternate}
+.hello{font-family:"Great Vibes",cursive;font-size:clamp(55px,9vw,85px);margin:14px 0 4px;color:#ffe6ef;text-shadow:0 0 25px #ff7eaf55}
+.hint{font-size:12px;color:#d8c0d8;margin:0 auto 25px}
+.main-btn{border:1px solid #ffd1e255;border-radius:999px;padding:14px 24px;background:linear-gradient(135deg,#ffd889,#ff8fbf);color:#35152e;font:700 12px "DM Sans",sans-serif;cursor:pointer;box-shadow:0 12px 30px #0003;transition:.25s;position:relative;z-index:20}
+.main-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 35px #ff85b544}
+.balloon{position:absolute;width:58px;height:74px;border-radius:50%;opacity:.9;box-shadow:inset -9px -8px 15px #0002,inset 9px 8px 14px #fff3;animation:balloonFloat 4s ease-in-out infinite}
+.balloon:after{content:"";position:absolute;bottom:-9px;left:24px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:10px solid currentColor}
+.balloon:before{content:"";position:absolute;width:1px;height:120px;background:#fff5;left:29px;top:72px}
+.opening-balloons .balloon:nth-child(1){background:#ff77a9;color:#ff77a9;left:7%;top:16%}.opening-balloons .balloon:nth-child(2){background:#ffd06e;color:#ffd06e;left:21%;top:67%;animation-delay:-1s}.opening-balloons .balloon:nth-child(3){background:#a98aff;color:#a98aff;right:8%;top:20%;animation-delay:-2s}.opening-balloons .balloon:nth-child(4){background:#69d9cf;color:#69d9cf;right:20%;top:69%;animation-delay:-1.5s}
+.dim-overlay{position:absolute;inset:0;background:#09050caa;backdrop-filter:blur(1px)}
+#birthday{align-items:center;justify-content:center;background:radial-gradient(circle at 50% 48%,#5c315f,#211025 57%,#0e0612)}
+.color-orbs:before,.color-orbs:after{content:"";position:absolute;width:350px;height:350px;border-radius:50%;filter:blur(100px);opacity:.3}.color-orbs:before{background:#ff579d;left:-150px;top:10%}.color-orbs:after{background:#8b62ff;right:-150px;bottom:0}
+.birthday-title{position:absolute;z-index:12;top:5%;font-family:"Playfair Display",serif;font-size:clamp(36px,7vw,68px);line-height:1.08;text-shadow:0 4px 20px #0008;animation:titlePulse 3s infinite}
+.birthday-title span{font-family:"Great Vibes",cursive;font-size:1.25em;animation:rainbow 4s linear infinite}
+.birthday-subtitle{position:absolute;z-index:12;top:20%;font-size:12px;color:#ead6e8}
+
+.birthday-cake{position:absolute;z-index:5;left:50%;top:59%;transform:translate(-50%,-50%);width:360px;height:245px;pointer-events:none;filter:drop-shadow(0 22px 35px #0009)}
+.big-cake{position:relative;width:360px;height:245px}
+.big-cake-top{position:absolute;left:43px;top:105px;width:274px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ffd6e6,#fff4ee 48%,#f0a6c7);border:4px solid #ffeaf2;box-shadow:0 0 30px #ff9fc933}
+.big-cake-body{position:absolute;left:44px;top:132px;width:272px;height:82px;border-radius:12px 12px 30px 30px;background:linear-gradient(90deg,#c9578a,#f7a3c2 25%,#ffe0e8 52%,#ee94ba 78%,#bf4e83);box-shadow:inset 0 -13px #a94578,inset 0 5px #fff0f5}
+.big-cake-body:before{content:"";position:absolute;top:-3px;left:0;right:0;height:31px;background:#fff0f3;border-radius:50%;clip-path:polygon(0 0,100% 0,100% 55%,94% 45%,88% 92%,79% 48%,69% 85%,58% 45%,49% 91%,38% 46%,28% 82%,18% 46%,9% 92%,0 48%)}
+.big-cake-body b{position:absolute;width:9px;height:9px;border-radius:50%;background:#ffe28e;box-shadow:0 0 9px #ffe28e}
+.big-cake-body b:nth-child(1){left:35px;top:42px}.big-cake-body b:nth-child(2){left:90px;top:60px}.big-cake-body b:nth-child(3){left:137px;top:39px}.big-cake-body b:nth-child(4){right:83px;top:59px}.big-cake-body b:nth-child(5){right:35px;top:42px}
+.big-plate{position:absolute;left:20px;bottom:11px;width:320px;height:22px;border-radius:50%;background:#efc4d9;box-shadow:0 9px 0 #79456e,0 15px 25px #0007}
+.big-cake-candles{position:absolute;z-index:8;top:25px;left:104px;display:flex;gap:10px}
+.big-num{display:flex;width:67px;height:91px;align-items:center;justify-content:center;border-radius:13px;background:linear-gradient(135deg,#ffe070,#ff9a70);border:4px solid #fff0b8;color:#fff;font-family:"Playfair Display",serif;font-size:58px;font-weight:700;text-shadow:0 3px 5px #9d4160;box-shadow:0 0 22px #ffcf7066}
+.big-flame{position:absolute;z-index:10;width:19px;height:31px;background:radial-gradient(ellipse at 50% 70%,#fff 0 18%,#ffe66d 31%,#ff7b32 75%);border-radius:60% 40% 55% 45%;filter:drop-shadow(0 0 12px #ffc34e);animation:flicker .55s infinite alternate}
+.flame-one{top:1px;left:126px}.flame-two{top:1px;left:202px}
+
+.polaroids{position:absolute;inset:0;z-index:4;pointer-events:none}
+.polaroid{position:absolute;width:150px;padding:8px 8px 27px;background:#fff;box-shadow:0 12px 30px #0008;transform:rotate(var(--r));animation:photoIn .9s both}
+.polaroid img{display:block;width:100%;height:132px;object-fit:cover;background:linear-gradient(135deg,#f4c9db,#a984b0);border-radius:1px}
+.polaroid span{position:absolute;bottom:7px;left:0;right:0;color:#6b4259;font:12px "Great Vibes",cursive}
+.placeholder{display:flex;align-items:center;justify-content:center;color:#9d748c;font-size:10px}
+.next-btn{position:absolute;bottom:7%;left:50%;transform:translateX(-50%);z-index:10}
+.next-btn:hover{transform:translateX(-50%) translateY(-3px) scale(1.02)}
+#prayer{align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,#45264f,#170c25 65%,#090610)}
+.moon{position:absolute;width:160px;height:160px;border-radius:50%;right:9%;top:9%;background:#ffe8b5;box-shadow:0 0 80px #ffe5a655}.moon:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:#20102e;left:40px;top:-20px}
+.prayer-content{position:relative;z-index:3;width:min(650px,88vw);padding:35px 20px}.small-title{font-size:10px;letter-spacing:5px;color:#ffd78e}.prayer-text{min-height:250px;display:flex;align-items:center;justify-content:center;font-family:"Great Vibes",cursive;font-size:clamp(39px,7vw,68px);line-height:1.35;color:#ffe7f1;text-shadow:0 0 25px #ff91c044;animation:prayerFade .9s}
+.prayer-dots{display:flex;justify-content:center;gap:7px}.prayer-dots i{width:6px;height:6px;border-radius:50%;background:#ffffff44}.prayer-dots i.active{background:#ffd88d;box-shadow:0 0 10px #ffd88d}
+.prayer-next{opacity:0;pointer-events:none;transition:1s}.prayer-next.show{opacity:1;pointer-events:auto}
+#finale{align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#8d3e72 0,#3c173e 42%,#110614 90%)}
+.final-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:#ff8cbd33;filter:blur(70px)}
+.final-content{position:relative;z-index:5;padding:20px;animation:finalIn 1.3s both}
+.final-photo-frame{width:270px;height:325px;background:#fff;padding:9px 9px 26px;margin:0 auto 22px;box-shadow:0 18px 50px #0007;transform:rotate(-2deg)}.final-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:1px}.final-title{font-family:"Playfair Display",serif;font-size:clamp(35px,7vw,67px);line-height:1.05}.final-title span{font-family:"Great Vibes",cursive;color:#ffd68d;font-size:1.15em;text-shadow:0 0 25px #ffd68d55}.final-message{font-size:13px;line-height:1.8;color:#f0dbe9}.final-hearts{letter-spacing:8px;color:#ffb3d0;font-size:18px}.final-sign{font:22px "Great Vibes",cursive;color:#ffd8e7}
+.firework{position:absolute;color:#ffd982;font-size:55px;animation:firework 2s infinite}.f1{left:12%;top:17%}.f2{right:13%;top:20%;animation-delay:.5s}.f3{right:17%;bottom:18%;animation-delay:1s}
+#confetti,#finalConfetti{position:absolute;inset:0;pointer-events:none;z-index:8}.confetti-piece{position:absolute;top:-15px;width:9px;height:15px;animation:fall 3.5s linear forwards}
+@keyframes stars{from{opacity:.35}to{opacity:.8}}@keyframes flicker{from{transform:rotate(-5deg) scale(.9)}to{transform:rotate(5deg) scale(1.1)}}@keyframes balloonFloat{50%{transform:translateY(-18px) rotate(4deg)}}@keyframes titlePulse{50%{transform:scale(1.025)}}@keyframes rainbow{0%{color:#ff9fc5}25%{color:#ffd78d}50%{color:#c6a1ff}75%{color:#91e5dc}100%{color:#ff9fc5}}@keyframes photoIn{from{opacity:0;transform:translateY(50px) scale(.7) rotate(0)}to{opacity:1;transform:rotate(var(--r))}}@keyframes prayerFade{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}@keyframes finalIn{from{opacity:0;transform:scale(.8) translateY(30px)}to{opacity:1;transform:none}}@keyframes firework{0%,100%{transform:scale(.8) rotate(0);opacity:.4}50%{transform:scale(1.4) rotate(45deg);opacity:1}}@keyframes fall{to{transform:translateY(110vh) rotate(760deg);opacity:0}}
+.music-control{position:fixed;right:15px;bottom:14px;z-index:100;border:1px solid #ffffff2a;border-radius:999px;padding:10px 14px;background:#1c1024cc;color:#ffeaf3;font-size:10px;cursor:pointer;backdrop-filter:blur(10px)}
+@media(max-width:600px){.birthday-title{top:4%;font-size:clamp(30px,8vw,45px)}.birthday-subtitle{top:18%;font-size:10px}.birthday-cake{top:57%;transform:translate(-50%,-50%) scale(.78)}.balloon{width:45px;height:59px}.polaroid{width:105px;padding:6px 6px 22px}.polaroid img{height:92px}.birthday-subtitle{top:27%}.birthday-title{top:8%}.moon{width:100px;height:100px}.moon:after{width:100px;height:100px;left:25px;top:-12px}.cake{transform:scale(.85)}}
+
+@media(max-width:600px){
+  .birthday-cake{top:45%;transform:translate(-50%,-50%) scale(.72)}
+  .polaroid{width:118px}
+  .polaroid img{height:102px}
+  .final-photo-frame{width:235px;height:285px}
+  .prayer-text{min-height:280px;font-size:clamp(35px,9vw,53px)}
+}
+
+/* Lilin awal mati; menyala setelah tombol Nyalakan Lilin ditekan */
+#opening .flame{opacity:0;transform:scale(0);animation:none}
+.big-flame{opacity:0;transform:scale(0);animation:none}
+.big-flame.lit{opacity:1;animation:flicker .55s infinite alternate}
+
+/* 10 Polaroid bergerak bebas dengan pola acak masing-masing */
+.polaroid{animation:polaroidDrift var(--floatTime,9s) ease-in-out infinite alternate;will-change:transform}
+@keyframes polaroidDrift{
+  0%{opacity:0;transform:translate(0,35px) scale(.72) rotate(0deg)}
+  12%{opacity:1;transform:translate(var(--x1),var(--y1)) scale(1) rotate(var(--r))}
+  38%{transform:translate(var(--x2),var(--y2)) rotate(calc(var(--r) + 5deg))}
+  62%{transform:translate(var(--x3),var(--y3)) rotate(calc(var(--r) - 6deg))}
+  82%{transform:translate(var(--x4),var(--y4)) rotate(calc(var(--r) + 3deg))}
+  100%{opacity:1;transform:translate(var(--x1),var(--y1)) rotate(calc(var(--r) - 4deg))}
+}
+@media(max-width:600px){
+  .polaroid{animation-duration:var(--floatTime,8s)}
+}
+
+/* ===== Langit berbintang di halaman Polaroid ===== */
+.birthday-stars-layer{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.birthday-stars-layer i,.blow-sky-stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff,0 0 14px #ffdca0;animation:tinyTwinkle var(--twinkle,2.5s) ease-in-out infinite}
+.birthday-shooting-star{position:absolute;width:75px!important;height:2px!important;border-radius:99px!important;background:linear-gradient(90deg,transparent,#fff,#ffe3a3,transparent)!important;box-shadow:0 0 10px #fff!important;transform:rotate(35deg);animation:shootBirthday 4.8s linear infinite}
+
+/* ===== Halaman Tiup Lilin ===== */
+#blow{align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,#50326d 0,#211331 48%,#090611 100%)}
+.blow-sky-stars,.shooting-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.blow-sky-stars{z-index:1}
+.blow-sky-stars i{width:var(--size,2.5px);height:var(--size,2.5px);z-index:1}
+.blow-moon{position:absolute;z-index:2;right:8%;top:8%;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#fff9df,#ffe7a9 65%,#f5cf82);box-shadow:0 0 25px #fff2bd88,0 0 85px #ffe8a644}
+.blow-moon:before,.blow-moon:after{content:"";position:absolute;border-radius:50%;background:#e6c98033}
+.blow-moon:before{width:22px;height:22px;left:28px;top:35px;box-shadow:38px 26px 0 4px #e6c98025,55px -9px 0 2px #e6c9802b,19px 67px 0 5px #e6c98020}
+.blow-moon span{position:absolute;width:20px;height:20px;right:27px;bottom:30px;border-radius:50%;background:#e6c98028}
+.shooting-star{position:absolute;width:95px;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#fff,#ffe1a0,transparent);box-shadow:0 0 12px #fff,0 0 20px #ffe4a0;transform:rotate(35deg);opacity:0;animation:shoot 5.8s linear infinite}
+.blow-title{position:absolute;z-index:5;top:7%;font-family:"Great Vibes",cursive;font-size:clamp(42px,7vw,70px);color:#ffe9f4;text-shadow:0 0 25px #ff9ac455}
+.blow-subtitle{position:absolute;z-index:5;top:17%;margin:0;color:#e8d9eb;font-size:12px}
+.blow-cake-wrap{position:absolute;z-index:4;left:50%;top:53%;transform:translate(-50%,-50%);filter:drop-shadow(0 25px 35px #0009)}
+.blow-cake{position:relative;width:360px;height:245px}
+.blow-cake-top{position:absolute;left:43px;top:105px;width:274px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ffd6e6,#fff4ee 48%,#f0a6c7);border:4px solid #ffeaf2;box-shadow:0 0 30px #ff9fc933}
+.blow-cake-body{position:absolute;left:44px;top:132px;width:272px;height:82px;border-radius:12px 12px 30px 30px;background:linear-gradient(90deg,#c9578a,#f7a3c2 25%,#ffe0e8 52%,#ee94ba 78%,#bf4e83);box-shadow:inset 0 -13px #a94578,inset 0 5px #fff0f5}
+.blow-cake-body:before{content:"";position:absolute;top:-3px;left:0;right:0;height:31px;background:#fff0f3;border-radius:50%;clip-path:polygon(0 0,100% 0,100% 55%,94% 45%,88% 92%,79% 48%,69% 85%,58% 45%,49% 91%,38% 46%,28% 82%,18% 46%,9% 92%,0 48%)}
+.blow-cake-body b{position:absolute;width:9px;height:9px;border-radius:50%;background:#ffe28e;box-shadow:0 0 9px #ffe28e}.blow-cake-body b:nth-child(1){left:35px;top:42px}.blow-cake-body b:nth-child(2){left:90px;top:60px}.blow-cake-body b:nth-child(3){left:137px;top:39px}.blow-cake-body b:nth-child(4){right:83px;top:59px}.blow-cake-body b:nth-child(5){right:35px;top:42px}
+.blow-plate{position:absolute;left:20px;bottom:11px;width:320px;height:22px;border-radius:50%;background:#efc4d9;box-shadow:0 9px 0 #79456e,0 15px 25px #0007}
+.blow-cake-candles{position:absolute;z-index:8;top:25px;left:104px;display:flex;gap:10px}
+.blow-num{display:flex;width:67px;height:91px;align-items:center;justify-content:center;border-radius:13px;background:linear-gradient(135deg,#ffe070,#ff9a70);border:4px solid #fff0b8;color:#fff;font-family:"Playfair Display",serif;font-size:58px;font-weight:700;text-shadow:0 3px 5px #9d4160;box-shadow:0 0 22px #ffcf7066}
+.blow-flame{position:absolute;z-index:10;width:19px;height:31px;background:radial-gradient(ellipse at 50% 70%,#fff 0 18%,#ffe66d 31%,#ff7b32 75%);border-radius:60% 40% 55% 45%;filter:drop-shadow(0 0 12px #ffc34e);animation:flicker .55s infinite alternate;transition:.4s}
+.blow-flame-one{top:1px;left:126px}.blow-flame-two{top:1px;left:202px}
+.blow-flame.off{opacity:0;transform:scale(.1);animation:none}
+.blow-note{position:absolute;z-index:5;top:75%;margin:0;color:#f1deea;font-size:12px}
+.blow-btn{position:absolute;z-index:10;bottom:8%;left:50%;transform:translateX(-50%)}
+.blow-btn:hover{transform:translateX(-50%) translateY(-3px) scale(1.02)}
+@keyframes tinyTwinkle{0%,100%{opacity:.15;transform:scale(.65)}50%{opacity:1;transform:scale(1.45)}}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(35deg)}8%{opacity:1}35%{opacity:0;transform:translate(-210px,150px) rotate(35deg)}100%{opacity:0;transform:translate(-210px,150px) rotate(35deg)}}
+@keyframes shootBirthday{0%,55%{opacity:0;transform:translate(0,0) rotate(35deg)}62%{opacity:1}78%{opacity:0;transform:translate(-160px,120px) rotate(35deg)}100%{opacity:0}}
+@keyframes prayerFadeOut{to{opacity:0;transform:translateY(-18px) scale(.96)}}
+@media(max-width:600px){
+  .blow-moon{width:92px;height:92px;right:6%;top:7%}.blow-moon:before{transform:scale(.65);transform-origin:top left}.blow-moon span{transform:scale(.65);transform-origin:bottom right}
+  .blow-title{top:6%;font-size:clamp(38px,9vw,52px)}.blow-subtitle{top:15%;font-size:10px}.blow-cake-wrap{top:50%;transform:translate(-50%,-50%) scale(.72)}.blow-note{top:72%;width:88%;font-size:11px}.blow-btn{bottom:7%}
+}
+
+
+/* ===== Credit kecil di semua halaman ===== */
+.created-by{position:absolute;z-index:90;left:50%;bottom:9px;transform:translateX(-50%);font:600 10px/1.2 "DM Sans",sans-serif;letter-spacing:.4px;color:#f8eaf2aa;text-shadow:0 1px 4px #0008;white-space:nowrap;pointer-events:none}
+
+/* ===== Tambahan langit malam halaman terakhir ===== */
+.final-sky-stars,.final-shooting-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.final-sky-stars{z-index:1}
+.final-sky-stars i{position:absolute;width:var(--size,2.5px);height:var(--size,2.5px);border-radius:50%;background:#fff;box-shadow:0 0 7px #fff,0 0 14px #ffdca0;animation:tinyTwinkle var(--twinkle,2.5s) ease-in-out infinite}
+.final-shooting-stars{z-index:2}
+.final-shooting-star{position:absolute;width:95px;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#fff,#ffe1a0,transparent);box-shadow:0 0 12px #fff,0 0 20px #ffe4a0;transform:rotate(35deg);opacity:0;animation:finalShoot 6s linear infinite}
+.final-moon{position:absolute;z-index:3;right:8%;top:8%;width:135px;height:135px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#fffbe5,#ffe8a7 64%,#f5cd7e);box-shadow:0 0 28px #fff1bd99,0 0 90px #ffe8a655}
+.final-moon:before,.final-moon:after{content:"";position:absolute;border-radius:50%;background:#d8bc7130}
+.final-moon:before{width:22px;height:22px;left:28px;top:35px;box-shadow:38px 26px 0 4px #d8bc7125,55px -9px 0 2px #d8bc712b,19px 67px 0 5px #d8bc7120}
+.final-moon span{position:absolute;width:20px;height:20px;right:27px;bottom:30px;border-radius:50%;background:#d8bc7128}
+.final-content{z-index:5}
+@keyframes finalShoot{0%,55%{opacity:0;transform:translate(0,0) rotate(35deg)}62%{opacity:1}78%{opacity:0;transform:translate(-180px,135px) rotate(35deg)}100%{opacity:0;transform:translate(-180px,135px) rotate(35deg)}}
+@media(max-width:600px){.created-by{bottom:7px;font-size:9px}.final-moon{width:90px;height:90px;right:6%;top:7%}.final-moon:before{transform:scale(.65);transform-origin:top left}.final-moon span{transform:scale(.65);transform-origin:bottom right}}
